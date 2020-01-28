@@ -1,13 +1,6 @@
 
-function insertIncome(incomeName, incomeAmount){
-
-    this.incomeName = '';
-    this.incomeAmount = 0;
-
-}
-
 /**
- * Below is the insert Cost Function, this will automatically add the $ sign to the amount
+ * Below is the insert Item Function, this will automatically add the $ in the amount
  */
 
 function insertItem() {
@@ -17,7 +10,7 @@ function insertItem() {
     let costName = document.getElementById('item_name_field').value;
     let costAmount = document.getElementById('item_amount_field').value;
     let dateOfCost = document.getElementById('date_of_item_field').value;
-    let tableName = 'cost_table';
+    let tableName = document.getElementById('typeOfTrans').value + '_table';
 
     //Setting Error variables for the error check below
     let costAmountError = document.getElementById('item_amount-error');
@@ -27,6 +20,8 @@ function insertItem() {
     /**
      * Below is the javascript to create the entry into the table at the bottom of the page.
      */
+
+
     if(costName !== '' && costAmount !== '' && dateOfCost !== ''){
 
         createTableEntry(tableName, 'cost_', costName, costAmount, dateOfCost);
@@ -40,8 +35,9 @@ function insertItem() {
             costAmountError.textContent = '';
         }
 
+
         //RunTable Total
-        tableTotal();
+        tableTotal(tableName);
 
     } else {
         //TODO: need errors for all fields in Cost
@@ -52,6 +48,8 @@ function insertItem() {
         costAmountError.style.borderColor = 'red';
         costAmountError.focus();
     }
+
+    console.log(tableName);
 
 }
 
@@ -99,7 +97,7 @@ createTableEntry = (tableName, className, itemName, amountOfItem, dateOfItem ) =
 
 };
 
-tableTotal = () => {
+tableTotal = (tableName) => {
 
     let totalLeftOver = document.getElementById('totalLeftOver').innerHTML;
     totalLeftOver = totalLeftOver.replace(/[^0-9.-]+/g, '');
