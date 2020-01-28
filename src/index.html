@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <!-- Compressed CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+  <!-- Compressed JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/bf2207c01b.js" crossorigin="anonymous"></script>
+
+  <title>Test App</title>
+</head>
+<body>
+<div class="grid-container">
+    <div class="grid-x align-middle align-center">
+        <div class="cell text-center">
+            <h2>Money Manager</h2>
+        </div>
+    </div>
+</div>
+  <div class="grid-container">
+      <div class="grid-x grid-padding-y grid-padding-x large-up-2 align-middle align-center">
+        <div class="cell">
+            <label>
+            Monthly Recurring Cost Name
+            <input type="text" id="item_name_field" name="item_name" placeholder="Example: Cable Bill" required>
+              <span id="item_name-error"></span>
+            </label>
+            <label>
+                Monthly Recurring Amount
+                <input type="number" id="item_amount_field" name="item_amount" placeholder="Example: 100" required>
+                <span id="item_amount-error"></span>
+            </label>
+            <label>
+                Date of Recurring Cost
+                <input type="date" id="date_of_item_field" name="date_of_item" required>
+                <span id="date_of_item-error"></span>
+            </label>
+            <label for="typeOfTrans"> Type of Transaction
+                <select id="typeOfTrans" name="typeOfTrans">
+                    <option value="" disabled selected>Choose Type of Transaction</option>
+                    <option value="income">Income</option>
+                    <option value="cost">Monthly Cost</option>
+                    <option value="one-cost">One Time Cost</option>
+                </select>
+            </label>
+          <button type="button" class="button primary" onclick="insertItem()">Add Cost</button>
+        </div>
+      </div>
+  </div>
+
+  <div class="grid-container">
+      <div class="grid-x grid-padding-y">
+          <div class="cell">
+              <h3>Total Spendures and Available Money</h3>
+          </div>
+          <div class="cell">
+              <table id="income_table" class="table">
+
+                  <thead>
+                  <tr>
+                      <th>Income Name</th>
+                      <th>Income Amount</th>
+                  </tr>
+                  </thead>
+
+                  <tbody>
+                  <tr>
+                      <td class="income_1">Income Name</td>
+                      <td class="Income_Name_1">$60 <span style="float:right;"><i class="fas fa-window-close"></i></span></td>
+                  </tr>
+                  </tbody>
+              </table>
+
+          </div>
+
+          <div class="cell">
+              <table id="cost_table" class="table">
+
+                  <thead>
+                  <tr>
+                      <th>Monthly Cost Name</th>
+                      <th>Monthly Cost Amount</th>
+                      <th>Date of Monthly Cost</th>
+                  </tr>
+                  </thead>
+
+                  <tbody>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                      <th colspan="2">Total Available Spending:</th>
+                      <td id="totalLeftOver" style="float: right;"> $5060</td>
+                  </tr>
+                  </tfoot>
+              </table>
+          </div>
+          <div class="cell text-right">
+              <button class="button primary" onclick="tableTotal()">Refresh Total</button>
+          </div>
+      </div>
+  </div>
+
+  <script src="src/scripts/index.js"> </script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
