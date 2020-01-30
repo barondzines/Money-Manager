@@ -16,7 +16,7 @@
 <div class="grid-container">
     <div class="grid-x align-middle align-center">
         <div class="cell text-center">
-            <h2>Money Manager</h2>
+            <h2>Available Spending</h2>
         </div>
     </div>
 </div>
@@ -51,12 +51,12 @@
       </div>
   </div>
 
-  <div class="grid-container">
+  <div id="table-container" class="grid-container hide">
       <div class="grid-x grid-padding-y">
           <div class="cell">
               <h3>Total Spendures and Available Money</h3>
           </div>
-          <div class="cell">
+          <div id="income-table-cell" class="cell hide">
               <table id="income_table" class="table">
 
                   <thead>
@@ -75,7 +75,7 @@
 
           </div>
 
-          <div class="cell">
+          <div id="cost-table-cell" class="cell hide">
               <table id="cost_table" class="table">
 
                   <thead>
@@ -89,13 +89,24 @@
                   <tbody>
                   </tbody>
                   <tfoot>
-                  <tr>
-                      <th colspan="2">Total Available Spending:</th>
-                      <td id="totalLeftOver" style="float: right;"> $5060</td>
-                  </tr>
                   </tfoot>
               </table>
           </div>
+
+          <div class="cell">
+
+              <div class="grid-x small-up-2">
+                  <div class="cell">
+                    <strong>Total Available Spending:</strong>
+                  </div>
+                  <div id="totalLeftOver" class="cell text-right">
+                      $0
+                  </div>
+              </div>
+                  <div></div>
+
+          </div>
+
           <div class="cell text-right">
               <button class="button primary" onclick="tableTotal()">Refresh Total</button>
           </div>
