@@ -1,0 +1,25 @@
+.single-item {
+  background-color: #fff;
+  border-radius: 3px;
+  position: relative; }
+  .single-item .single-item-container {
+    height: 75px;
+    padding: 0 10px; }
+  .single-item .transIcon {
+    background: #cbcbcb;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 39px; }
+  .single-item span.close-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px; }
+
+body {
+  background-color: #edebea;
+  color: slateblue;
+  font-family: sans-serif; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,28 @@
+
+.single-item{
+
+    background-color: #fff;
+    border-radius: 3px;
+    position: relative;
+
+    .single-item-container{
+        height:75px;
+        padding: 0 10px;
+    }
+
+    .transIcon{
+        background: #cbcbcb;
+        padding: 15px;
+        width: 60px;
+        height: 60px;
+        border-radius: 39px;
+    }
+
+    span.close-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 12px;
+    }
+
+}

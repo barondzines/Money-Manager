@@ -9,111 +9,125 @@
   <!-- Compressed JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/bf2207c01b.js" crossorigin="anonymous"></script>
-
   <title>Test App</title>
+
 </head>
+
 <body>
-<div class="grid-container">
-    <div class="grid-x align-middle align-center">
-        <div class="cell text-center">
-            <h2>Available Spending</h2>
+    <div class="grid-container">
+        <div class="grid-x grid-padding-y align-middle align-center">
+            <div class="cell text-center">
+                <div id="totalLeftOver" class="spending-amount">
+                    $0
+                </div>
+                <div>Total Available Spending</div>
+            </div>
+
+            <div class="cell text-center">
+                <div class="grid-x grid-padding-x align-middle align-center small-up-6">
+                    <div class="cell text-center">
+                        <button class="button" data-open="submitItem">New Entry</button>
+                    </div>
+
+                    <div class="cell text-center hide">
+                        <button class="button primary" onclick="refreshTotal()">Refresh Total</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-  <div class="grid-container">
-      <div class="grid-x grid-padding-y grid-padding-x large-up-2 align-middle align-center">
-        <div class="cell">
-            <label>
-            Monthly Recurring Cost Name
-            <input type="text" id="item_name_field" name="item_name" placeholder="Example: Cable Bill" required>
-              <span id="item_name-error"></span>
-            </label>
-            <label>
-                Monthly Recurring Amount
-                <input type="number" id="item_amount_field" name="item_amount" placeholder="Example: 100" required>
-                <span id="item_amount-error"></span>
-            </label>
-            <label>
-                Date of Recurring Cost
-                <input type="date" id="date_of_item_field" name="date_of_item" required>
-                <span id="date_of_item-error"></span>
-            </label>
-            <label for="typeOfTrans"> Type of Transaction
-                <select id="typeOfTrans" name="typeOfTrans">
-                    <option value="" disabled selected>Choose Type of Transaction</option>
-                    <option value="income">Income</option>
-                    <option value="cost">Monthly Cost</option>
-                    <option value="cost">One Time Cost</option>
-                </select>
-            </label>
-          <button type="button" class="button primary" onclick="insertItem()">Add Item</button>
+    <div class="reveal" id="submitItem" data-reveal>
+        <div class="grid-container">
+            <div class="grid-x grid-padding-y grid-padding-x large-up-2 align-middle align-center">
+                <div class="cell">
+                    <label>
+                        Monthly Recurring Cost Name
+                        <input type="text" id="item_name_field" name="item_name" placeholder="Example: Cable Bill" required>
+                        <span id="item_name-error"></span>
+                    </label>
+                    <label>
+                        Monthly Recurring Amount
+                        <input type="number" id="item_amount_field" name="item_amount" placeholder="Example: 100" required>
+                        <span id="item_amount-error"></span>
+                    </label>
+                    <label for="typeOfTrans"> Type of Transaction
+                        <select id="typeOfTrans" name="typeOfTrans">
+                            <option value="" disabled selected>Choose Type of Transaction</option>
+                            <option value="income">Income</option>
+                            <option value="cost">Monthly Cost</option>
+                            <option value="cost">One Time Cost</option>
+                        </select>
+                    </label>
+                    <label>
+                        Category of Recurring Item
+                        <select id="catOfTrans" name="catOfTrans">
+                            <option value="" disabled selected>Choose Category of Transaction</option>
+                            <option value="bill">Bill</option>
+                            <option value="cable">Cable Bill</option>
+                            <option value="car-insurance">Car Insurance</option>
+                            <option value="car-note">Car Note</option>
+                            <option value="cell-phone">Cell Phone</option>
+                            <option value="child-support">Child Support</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="fuel">Fuel</option>
+                            <option value="gas">Gas</option>
+                            <option value="groceries">Groceries</option>
+                            <option value="gym">Gym</option>
+                            <option value="internet">Internet</option>
+                            <option value="internet-tv">Internet Tv</option>
+                            <option value="misc">Misc</option>
+                            <option value="mortgage">Mortgage</option>
+                            <option value="paycheck">Paycheck</option>
+                            <option value="student-loan">Student Loan</option>
+                            <option value="water">Water</option>
+                        </select>
+                        <span id="date_of_item-error"></span>
+                    </label>
+                    <button type="button" class="button primary" onClick="insertNewItem()" data-close>Add Item</button>
+                </div>
+            </div>
         </div>
-      </div>
-  </div>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 
-  <div id="table-container" class="grid-container hide">
-      <div class="grid-x grid-padding-y">
-          <div class="cell">
-              <h3>Total Spendures and Available Money</h3>
-          </div>
-          <div id="income-table-cell" class="cell hide">
-              <table id="income_table" class="table">
+    <div class="grid-container">
+        <div class="grid-x align-middle align-center text-center large-up-4">
+            <div class="cell hide">
+                <strong>Total Expenses Monthly:</strong>
+                <div id="totalCostMonthly" class="">
+                    $0
+                </div>
+            </div>
 
-                  <thead>
-                  <tr>
-                      <th>Income Name</th>
-                      <th>Income Amount</th>
-                      <th>Date of Icome</th>
-                  </tr>
-                  </thead>
+            <div class="cell hide">
+                <strong>Total Income Monthly:</strong>
+                <div id="totalIncomeMonthly" class="">
+                    $0
+                </div>
+            </div>
+        </div>
+    </div>
 
-                  <tbody>
-                  <tr>
-                  </tr>
-                  </tbody>
-              </table>
-
-          </div>
-
-          <div id="cost-table-cell" class="cell hide">
-              <table id="cost_table" class="table">
-
-                  <thead>
-                  <tr>
-                      <th>Monthly Cost Name</th>
-                      <th>Monthly Cost Amount</th>
-                      <th>Date of Monthly Cost</th>
-                  </tr>
-                  </thead>
-
-                  <tbody>
-                  </tbody>
-                  <tfoot>
-                  </tfoot>
-              </table>
-          </div>
-
-          <div class="cell">
-
-              <div class="grid-x small-up-2">
-                  <div class="cell">
-                    <strong>Total Available Spending:</strong>
-                  </div>
-                  <div id="totalLeftOver" class="cell text-right">
-                      $0
-                  </div>
+  <div  class="grid-container">
+      <div class="grid-x medium-up-2">
+          <div class="cell text-center costs">
+              <h3>Expenses</h3>
+              <div id="cost-container" class="grid-x align-middle align-center grid-padding-y">
               </div>
-                  <div></div>
-
           </div>
-
-          <div class="cell text-right">
-              <button class="button primary" onclick="tableTotal()">Refresh Total</button>
+          <div class="cell text-center income">
+              <h3>Income</h3>
+              <div id="income-container" class="grid-x align-middle align-center grid-padding-y">
+              </div>
           </div>
       </div>
   </div>
 
-  <script src="src/scripts/index.js"> </script>
+
+  <script type="text/html" src="../src/scripts/index.js"> </script>
   <script>
     $(document).foundation();
   </script>

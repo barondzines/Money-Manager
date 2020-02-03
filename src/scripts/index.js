@@ -1,187 +1,204 @@
+(function f() {
+'use strict';
+}());
+
+import '../styles/style.css';
+
+
 
 /**
  * Below is the insert Item Function, this will automatically add the $ in the amount
  */
 
-function insertItem() {
+var insertNewItem = insertItem = () => {
 
-    //Settting Variables to be used in the the rest of the function
-
+    //Setting Variables to be used in the the rest of the function
     let costName = document.getElementById('item_name_field').value;
     let costAmount = document.getElementById('item_amount_field').value;
-    let dateOfCost = document.getElementById('date_of_item_field').value;
-    let tableName = document.getElementById('typeOfTrans').value + '_table';
+    let catOfCost = document.getElementById('catOfTrans').value;
+    let typeOfTrans = document.getElementById('typeOfTrans').value;
 
     //Setting Error variables for the error check below
     let costAmountError = document.getElementById('item_amount-error');
-
-    //console.log('THis is the amount ', costAmount, 'this is the name ', costName);
 
     /**
      * Below is the javascript to create the entry into the table at the bottom of the page.
      */
 
-    if(costName !== '' && costAmount !== '' && dateOfCost !== ''){
+    if(costName !== '' && costAmount !== '' && catOfCost !== ''){
 
-        createTableEntry(tableName, 'cost_', costName, costAmount, dateOfCost);
+        /**
+         * THis is the function to inset a single cell item on the front page
+         */
+        createSingleItem( catOfCost, costAmount, costName, typeOfTrans );
 
 
         //TODO check to see if hide class exists on table div if it does do nothing, if it doesn't add it
 
         //These are here to zero out the fields after valid submission
         document.getElementById('item_name_field').value = '';
-        document.getElementById('date_of_item_field').value = '';
+        document.getElementById('catOfTrans').value = '';
         document.getElementById('item_amount_field').value = '';
         //this is here to zero out the display of cost amount if the error is showing after valid submission
         if(costAmountError.textContent !== ''){
             costAmountError.textContent = '';
         }
 
-
         //RunTable Total
-        tableTotal(tableName);
+        moneyTotals(typeOfTrans, costAmount, catOfCost);
 
     } else {
         //TODO: need errors for all fields in Cost
 
-        console.error('Nothing In fields');
         costAmountError.textContent = 'Need To Enter Amount';
         costAmountError.style.color = 'red';
         costAmountError.style.borderColor = 'red';
         costAmountError.focus();
     }
 
-    console.log(tableName);
+};
+
+
+function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
+
+    let transName = typeOfTrans.toString();
+    let singleItem = document.createElement('div');
+
+    if(transName === 'cost'){
+        singleItem.setAttribute('class', 'cell text-center single-item');
+        singleItem.innerHTML =
+            '<div class="grid-x small-up-3">'+
+            '<div class="cell transIcon">'+
+            '<i class="fas fa-file-invoice"></i>' +
+            '</div>'+
+            '<div class="cell transName">'+
+            costName +
+            '</div>'+
+            '<div class="cell transAmount">'+
+            '$' +
+            costAmount +
+            '</div>' +
+            '</div>' +
+            '<span><i class="fas fa-window-close '+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>';
+
+        document.getElementById('cost-container').appendChild(singleItem);
+
+    } else if(transName === 'income'){
+        singleItem.setAttribute('class', 'cell text-center single-item');
+        singleItem.innerHTML =
+            '<div class="grid-x grid-padding-x align-middle align-center single-item-container">'+
+            '<div class="cell shrink transIcon">'+
+            '<i class="fas fa-file-invoice"></i>' +
+            '</div>'+
+            '<div class="cell small-4 text-left transName">'+
+            costName +
+            '</div>'+
+            '<div class="cell auto transAmount">'+
+            '$' +
+            costAmount +
+            '</div>' +
+            '</div>'+
+            '<span class="close-icon"><i class="fas fa-window-close '+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>'+
+
+        document.getElementById('income-container').appendChild(singleItem);
+
+    }
+
 
 }
 
-deleteRow = (tableName) => {
+function deleteRow (transName){
 
-    //TODO if you delete all entries and there is none left, you ened to hide table
+    //TODO if you delete all entries and there is none left, you needd to hide table
 
-    $(tableName).on('click', '.fa-window-close', function() {
+    console.log('THis worked');
+    /*
+    $(typeOfTrans).on('click', '.fa-window-close', function() {
         $(this).closest("tr").remove();
-    });
+    });*/
 
-};
-
-refreshTotal = () => {
-
-    console.log('total Refreshed');
-
-};
+}
 
 
 
-createTableEntry = (tableName, className, itemName, amountOfItem, dateOfItem ) => {
+function refreshTotal(){
 
-    let incomeTableClass = document.getElementById("income-table-cell");
-    let costTableClass = document.getElementById("cost-table-cell");
-    let tableContainer = document.getElementById("table-container");
+    let incomeTableBody = document.getElementById('income_table');
+    let incomeWhichColumn = 1;
+    let incomeHowManyRows = incomeTableBody.rows.length;
 
-    document.getElementById(tableName).getElementsByTagName('tbody')[0].insertRow(0).innerHTML =
-        '<tr>' +
-        '<td class="' +
-        className +
-        '-' +
-        itemName+
-        '">' +
-        itemName +
-        '</td>' +
-        '<td class="'+
-        className +
-        '-' +
-        amountOfItem +
-        '">'+
-        '$'+
-        amountOfItem +
-        '<td class="dateof-' +
-        className +
-        '">' +
-        dateOfItem +
-        '<span style="float:right;"><i class="fas fa-window-close '+ tableName +'" onclick="deleteRow(' + tableName + ')"></i></span>'+
-        '</td>' +
-        '</tr>';
+    let costTableBody = document.getElementById('cost_table');
+    let costWhichColumn = 1;
+    let costHowManyRows = costTableBody.rows.length;
 
-    if(tableContainer.classList.contains("hide")){
 
-        tableContainer.classList.remove("hide");
-        console.log("The hole container is hidden");
-
-    } if(incomeTableClass.classList.contains("hide")  && tableName === 'income_table'){
-
-        incomeTableClass.classList.remove("hide");
-        console.log("I need to unhide Income Table");
-
-    } if (costTableClass.classList.contains("hide") && tableName === 'cost_table') {
-
-        costTableClass.classList.remove("hide");
-        console.log("I need to unhide Cost Table");
-
-    }
-
-};
-
-tableTotal = (tableName) => {
-
-    let totalLeftOver = document.getElementById('totalLeftOver').innerHTML;
-    totalLeftOver = parseFloat(totalLeftOver.replace(/[^0-9.-]+/g, ''));
-
-    let tableBody = document.getElementById(tableName);
-    let whichColumn = 1; // which column in the table has what we want
-    let howManyRows = tableBody.rows.length;
     let totalCostAmount = 0;
     let totalIncome = 0;
 
-    tableName = tableName.toString();
 
-    if(tableName === 'cost_table') {
-
-        for (let i=1; i<(howManyRows-1); i++) // skip first and last row (hence i=1, and howManyRows-1)
+    for (let i=1; i<(incomeHowManyRows-1); i++)
         {
-            let thisTrElem = tableBody.rows[i];
-            let thisTdElem = thisTrElem.cells[whichColumn];
+            let thisTrElem = incomeTableBody.rows[i];
+            let thisTdElem = thisTrElem.cells[incomeWhichColumn];
             let thisTextNode = thisTdElem.childNodes.item(0);
 
             thisTextNode = thisTextNode.data.replace(/[^0-9.-]+/g, '');
-            let actualNumber = parseFloat(thisTextNode);
+            let actualIncome = parseFloat(thisTextNode);
             // if you didn't get back the value NaN (i.e. not a number), add into result
-            if (!isNaN(actualNumber))
-                totalCostAmount += actualNumber;
+            if (!isNaN(actualIncome))
+                totalIncome += actualIncome ;
         }
 
-        console.log(totalLeftOver);
-
-        let numberTotal = totalLeftOver - totalCostAmount;
-
-        return document.getElementById('totalLeftOver').innerHTML = '$' + numberTotal;
-
-    } else if ( tableName === 'income_table' ){
-
-        for (let i=1; i<(howManyRows-1); i++)
+    for (let k=1; k<(costHowManyRows-1); k++) // skip first and last row (hence i=1, and howManyRows-1)
         {
-
-            let thisTrElem = tableBody.rows[i];
-            let thisTdElem = thisTrElem.cells[whichColumn];
+            let thisTrElem = costTableBody.rows[k];
+            let thisTdElem = thisTrElem.cells[costWhichColumn];
             let thisTextNode = thisTdElem.childNodes.item(0);
 
             thisTextNode = thisTextNode.data.replace(/[^0-9.-]+/g, '');
-            let actualNumber = parseFloat(thisTextNode);
-            console.log('This is before adding',actualNumber);
+            let actualCost = parseFloat(thisTextNode);
             // if you didn't get back the value NaN (i.e. not a number), add into result
-            if (!isNaN(actualNumber))
-              totalIncome += actualNumber;
+            if (!isNaN(actualCost))
+
+                totalIncome -= actualCost;
         }
 
-        let numberTotal = totalLeftOver + totalIncome;
+    return document.getElementById('totalLeftOver').innerHTML = '$' + totalIncome.toString();
 
-        console.log('This is after total', numberTotal);
+}
 
-        return document.getElementById('totalLeftOver').innerHTML = '$' + numberTotal;
+function moneyTotals(typeOfTrans, costAmount){
+
+    let today = new Date();
+    let totalLeftOver = document.getElementById('totalLeftOver').innerHTML;
+    totalLeftOver = parseFloat(totalLeftOver.replace(/[^0-9.-]+/g, ''));
+
+    let totalCostAmount = 0 + costAmount;
+    let total = parseFloat(costAmount);
+
+    typeOfTrans = typeOfTrans.toString();
+
+    if(typeOfTrans === 'cost') {
+
+        let costTotal = 0;
+
+        let numberTotal = totalLeftOver - total;
+        costTotal = parseFloat(costTotal + costAmount);
+
+        document.getElementById('totalLeftOver').innerHTML = '$' + numberTotal;
+        document.getElementById('totalCostMonthly').innerHTML = '$' + costTotal;
+
+    } else if ( typeOfTrans === 'income'){
+
+        let numberTotal = totalLeftOver + total;
+        let totalIncome = 0;
+
+        totalIncome = parseFloat(totalIncome + costAmount);
+
+        document.getElementById('totalLeftOver').innerHTML = '$' + numberTotal;
+        document.getElementById('totalIncomeMonthly').innerHTML = '$' + totalIncome;
 
     }
 
 
-
-
-};
+}
