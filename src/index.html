@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <!-- Compressed CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
-  <!-- Compressed JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/bf2207c01b.js" crossorigin="anonymous"></script>
-  <title>Test App</title>
+
+    <title>Test App</title>
 
 </head>
 
@@ -26,7 +30,7 @@
             <div class="cell text-center">
                 <div class="grid-x grid-padding-x align-middle align-center small-up-6">
                     <div class="cell text-center">
-                        <button class="button" data-open="submitItem">New Entry</button>
+                        <button class="button primary" data-open="submitItem">New Entry</button>
                     </div>
 
                     <div class="cell text-center hide">
@@ -36,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="reveal" id="submitItem" data-reveal>
+    <div class="reveal money-modal" id="submitItem" data-reveal>
         <div class="grid-container">
             <div class="grid-x grid-padding-y grid-padding-x large-up-2 align-middle align-center">
                 <div class="cell">
@@ -84,7 +88,7 @@
                         </select>
                         <span id="date_of_item-error"></span>
                     </label>
-                    <button type="button" class="button primary" onClick="insertNewItem()" data-close>Add Item</button>
+                    <button type="button" class="button primary" onClick="insertItem()" data-close>Add Item</button>
                 </div>
             </div>
         </div>
@@ -112,7 +116,7 @@
     </div>
 
   <div  class="grid-container">
-      <div class="grid-x medium-up-2">
+      <div class="grid-x grid-padding-x medium-up-2">
           <div class="cell text-center costs">
               <h3>Expenses</h3>
               <div id="cost-container" class="grid-x align-middle align-center grid-padding-y">

@@ -1,11 +1,60 @@
 
+@import "vars";
 @import "singleItem";
+@import "modal";
 
-$body-color: slateblue;
+body,
+html {
+    font-weight: 700;
+    background-color: $background-color;
+    color: $color-white-alternative;
+    font-family: $font-family;
+}
 
-body {
+h1, .h1, .typography h1,
+h2, .h2, .typography h2,
+h3, .h3, .typography h3,
+h4, .h4, .typography h4,
+h5, .h5, .typography h5,
+h6, .h6, .typography h6 {
+    font-weight: 900;
+    font-family: $font-family;
+    color: $color-white-alternative;
+}
 
-    background-color: #edebea;
-    color: $body-color;
-    font-family: sans-serif;
+h1, .h1, .typography h1 {
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+h2, .h2, .typography h2 {
+    font-size: 2.2em;
+    text-transform: uppercase;
+}
+
+
+.button{
+
+    background-color: $primary-cta-color-hover;
+
+    &.primary{
+
+        background-color: $primary-cta-color;
+        border-radius: $border-radius-global;
+        font-weight: bold;
+
+        &:hover{
+            background-color: $primary-cta-color-hover;
+        }
+
+        &:focus{
+            background-color: $primary-cta-color-hover;
+            outline: none;
+        }
+
+        &:active{
+            background-color: $primary-cta-color-hover;
+        }
+
+    }
 }

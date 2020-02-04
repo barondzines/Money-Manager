@@ -1,7 +1,9 @@
 
+@import "vars";
+
 .single-item{
 
-    background-color: #fff;
+    background-color: #6586ff;
     border-radius: 3px;
     position: relative;
 
@@ -13,6 +15,7 @@
     .transIcon{
         background: #cbcbcb;
         padding: 15px;
+        margin-left: 15px;
         width: 60px;
         height: 60px;
         border-radius: 39px;

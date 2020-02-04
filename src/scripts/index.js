@@ -4,13 +4,11 @@
 
 import '../styles/style.css';
 
-
-
 /**
  * Below is the insert Item Function, this will automatically add the $ in the amount
  */
 
-var insertNewItem = insertItem = () => {
+function insertItem(){
 
     //Setting Variables to be used in the the rest of the function
     let costName = document.getElementById('item_name_field').value;
@@ -56,8 +54,8 @@ var insertNewItem = insertItem = () => {
         costAmountError.focus();
     }
 
-};
-
+}
+window.insertItem = insertItem;
 
 function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
 
@@ -67,19 +65,22 @@ function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
     if(transName === 'cost'){
         singleItem.setAttribute('class', 'cell text-center single-item');
         singleItem.innerHTML =
-            '<div class="grid-x small-up-3">'+
-            '<div class="cell transIcon">'+
-            '<i class="fas fa-file-invoice"></i>' +
+            '<div class="grid-x grid-padding-x align-middle align-center single-item-container">'+
+            '<div class="cell shrink transIcon">'+
+            '<i class="fas fa-file-invoice fa-2x"></i>' +
             '</div>'+
-            '<div class="cell transName">'+
+            '<div class="cell small-4 text-left transName">'+
             costName +
+            '<p>'+
+             catOfCost +
+            '</p>' +
             '</div>'+
-            '<div class="cell transAmount">'+
+            '<div class="cell auto transAmount">'+
             '$' +
             costAmount +
             '</div>' +
             '</div>' +
-            '<span><i class="fas fa-window-close '+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>';
+            '<span class="close-icon"><i class="fas fa-window-close fa-2x '+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>';
 
         document.getElementById('cost-container').appendChild(singleItem);
 
@@ -88,17 +89,20 @@ function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
         singleItem.innerHTML =
             '<div class="grid-x grid-padding-x align-middle align-center single-item-container">'+
             '<div class="cell shrink transIcon">'+
-            '<i class="fas fa-file-invoice"></i>' +
+            '<i class="fas fa-file-invoice fa-2x"></i>' +
             '</div>'+
             '<div class="cell small-4 text-left transName">'+
             costName +
+            '<p>'+
+            catOfCost +
+            '</p>' +
             '</div>'+
             '<div class="cell auto transAmount">'+
             '$' +
             costAmount +
             '</div>' +
             '</div>'+
-            '<span class="close-icon"><i class="fas fa-window-close '+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>'+
+            '<span class="close-icon"><i class="fas fa-window-close'+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>';
 
         document.getElementById('income-container').appendChild(singleItem);
 

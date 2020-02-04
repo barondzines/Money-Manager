@@ -1,0 +1,47 @@
+
+@import "vars";
+
+.money-modal{
+
+    background-color: #313d63;
+    border-radius: $border-radius-global;
+    border: #263253;
+
+
+    &:focus{
+        outline:none;
+    }
+
+    label{
+        color: #fff;
+        font-weight: bold;
+
+    }
+
+    input, select{
+
+        background-color: #192132;
+        border: #1d253d;
+        border-radius: $border-radius-global;
+        color:#fff;
+
+        &:focus{
+
+            background-color: #192132;
+            border: 2px solid #b57ffd;
+            outline: none;
+            box-shadow: none;
+
+        }
+
+        &::placeholder{
+            color:#7782a1;
+        }
+
+    }
+
+    .close-button{
+        color: #b57ffd;
+    }
+
+}

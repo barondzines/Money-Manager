@@ -1,5 +1,5 @@
 .single-item {
-  background-color: #fff;
+  background-color: #6586ff;
   border-radius: 3px;
   position: relative; }
   .single-item .single-item-container {
@@ -8,6 +8,7 @@
   .single-item .transIcon {
     background: #cbcbcb;
     padding: 15px;
+    margin-left: 15px;
     width: 60px;
     height: 60px;
     border-radius: 39px; }
@@ -17,9 +18,67 @@
     right: 0;
     padding: 12px; }
 
-body {
-  background-color: #edebea;
-  color: slateblue;
-  font-family: sans-serif; }
+.money-modal {
+  background-color: #313d63;
+  border-radius: 3px;
+  border: #263253; }
+  .money-modal:focus {
+    outline: none; }
+  .money-modal label {
+    color: #fff;
+    font-weight: bold; }
+  .money-modal input, .money-modal select {
+    background-color: #192132;
+    border: #1d253d;
+    border-radius: 3px;
+    color: #fff; }
+    .money-modal input:focus, .money-modal select:focus {
+      background-color: #192132;
+      border: 2px solid #b57ffd;
+      outline: none;
+      box-shadow: none; }
+    .money-modal input::placeholder, .money-modal select::placeholder {
+      color: #7782a1; }
+  .money-modal .close-button {
+    color: #b57ffd; }
+
+body,
+html {
+  font-weight: 700;
+  background-color: #2b3657;
+  color: #fcfeff;
+  font-family: "Oswald", sans-serif; }
+
+h1, .h1, .typography h1,
+h2, .h2, .typography h2,
+h3, .h3, .typography h3,
+h4, .h4, .typography h4,
+h5, .h5, .typography h5,
+h6, .h6, .typography h6 {
+  font-weight: 900;
+  font-family: "Oswald", sans-serif;
+  color: #fcfeff; }
+
+h1, .h1, .typography h1 {
+  font-size: 2.5em;
+  text-transform: uppercase; }
+
+h2, .h2, .typography h2 {
+  font-size: 2.2em;
+  text-transform: uppercase; }
+
+.button {
+  background-color: #7f44fe; }
+  .button.primary {
+    background-color: #a277fe;
+    border-radius: 3px;
+    font-weight: bold; }
+    .button.primary:hover {
+      background-color: #7f44fe; }
+    .button.primary:focus {
+      background-color: #7f44fe;
+      outline: none; }
+    .button.primary:active {
+      background-color: #7f44fe; }
 
 /*# sourceMappingURL=style.css.map */
