@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
@@ -18,13 +18,13 @@
 </head>
 
 <body>
-    <div class="grid-container">
+    <div class="grid-container top-header">
         <div class="grid-x grid-padding-y align-middle align-center">
-            <div class="cell text-center">
+            <div class="cell text-center spending-amount-container">
                 <div id="totalLeftOver" class="spending-amount">
                     $0
                 </div>
-                <div>Total Available Spending</div>
+                <div class="subtitle">Total Available Spending</div>
             </div>
 
             <div class="cell text-center">
@@ -98,15 +98,15 @@
     </div>
 
     <div class="grid-container">
-        <div class="grid-x align-middle align-center text-center large-up-4">
-            <div class="cell hide">
+        <div class="grid-x grid-margin-x grid-padding-y align-middle align-center text-center large-up-4 total-block-container">
+            <div class="cell total-block">
                 <strong>Total Expenses Monthly:</strong>
                 <div id="totalCostMonthly" class="">
                     $0
                 </div>
             </div>
 
-            <div class="cell hide">
+            <div class="cell total-block">
                 <strong>Total Income Monthly:</strong>
                 <div id="totalIncomeMonthly" class="">
                     $0
@@ -116,7 +116,7 @@
     </div>
 
   <div  class="grid-container">
-      <div class="grid-x grid-padding-x medium-up-2">
+      <div class="grid-x grid-padding-x grid-margin-x medium-up-2">
           <div class="cell text-center costs">
               <h3>Expenses</h3>
               <div id="cost-container" class="grid-x align-middle align-center grid-padding-y">

@@ -3,9 +3,17 @@
 
 .single-item{
 
-    background-color: #6586ff;
+    background: rgb(101,131,251);
+    background: -moz-linear-gradient(34deg, rgba(101,131,251,1) 0%, rgba(118,130,255,1) 100%);
+    background: -webkit-linear-gradient(34deg, rgba(101,131,251,1) 0%, rgba(118,130,255,1) 100%);
+    background: linear-gradient(34deg, rgba(101,131,251,1) 0%, rgba(118,130,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6583fb",endColorstr="#7682ff",GradientType=1);
     border-radius: 3px;
     position: relative;
+
+    -webkit-box-shadow: 2px 2px 25px -14px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 25px -14px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 25px -14px rgba(0,0,0,0.75);
 
     .single-item-container{
         height:75px;
@@ -26,6 +34,11 @@
         top: 0;
         right: 0;
         padding: 12px;
+    }
+
+    .transAmount {
+        font-size: 28px;
+        font-weight: 700;
     }
 
 }

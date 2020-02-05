@@ -1,7 +1,9 @@
 
 @import "vars";
+@import "total-spending";
 @import "singleItem";
 @import "modal";
+@import "total-blocks";
 
 body,
 html {
@@ -32,6 +34,10 @@ h2, .h2, .typography h2 {
     text-transform: uppercase;
 }
 
+.grid-container {
+    margin-bottom: 20px;
+}
+
 
 .button{
 
@@ -57,4 +63,11 @@ h2, .h2, .typography h2 {
         }
 
     }
+}
+
+.costs, .income {
+
+    background-color: #192132;
+    padding: 25px;
+    border-radius: 10px;
 }

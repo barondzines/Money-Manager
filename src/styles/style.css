@@ -1,7 +1,20 @@
+.spending-amount-container .spending-amount {
+  color: #b57ffd;
+  font-size: 45px; }
+.spending-amount-container .subtitle {
+  font-weight: 300; }
+
 .single-item {
-  background-color: #6586ff;
+  background: #6583fb;
+  background: -moz-linear-gradient(34deg, #6583fb 0%, #7682ff 100%);
+  background: -webkit-linear-gradient(34deg, #6583fb 0%, #7682ff 100%);
+  background: linear-gradient(34deg, #6583fb 0%, #7682ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6583fb",endColorstr="#7682ff",GradientType=1);
   border-radius: 3px;
-  position: relative; }
+  position: relative;
+  -webkit-box-shadow: 2px 2px 25px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 25px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 25px -14px rgba(0, 0, 0, 0.75); }
   .single-item .single-item-container {
     height: 75px;
     padding: 0 10px; }
@@ -17,6 +30,9 @@
     top: 0;
     right: 0;
     padding: 12px; }
+  .single-item .transAmount {
+    font-size: 28px;
+    font-weight: 700; }
 
 .money-modal {
   background-color: #313d63;
@@ -41,6 +57,10 @@
       color: #7782a1; }
   .money-modal .close-button {
     color: #b57ffd; }
+
+.total-block {
+  border: 1px solid #3d4c79;
+  border-radius: 3px; }
 
 body,
 html {
@@ -67,6 +87,9 @@ h2, .h2, .typography h2 {
   font-size: 2.2em;
   text-transform: uppercase; }
 
+.grid-container {
+  margin-bottom: 20px; }
+
 .button {
   background-color: #7f44fe; }
   .button.primary {
@@ -80,5 +103,10 @@ h2, .h2, .typography h2 {
       outline: none; }
     .button.primary:active {
       background-color: #7f44fe; }
+
+.costs, .income {
+  background-color: #192132;
+  padding: 25px;
+  border-radius: 10px; }
 
 /*# sourceMappingURL=style.css.map */
