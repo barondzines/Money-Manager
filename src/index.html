@@ -18,10 +18,20 @@
 </head>
 
 <body>
-    <div class="grid-container top-header">
+    <div class="grid-container logo-bar">
+        <div class="grid-x medium-up-2 grid-padding-x grid-padding-y logo-bar-container">
+            <div class="cell text-left">
+                <div>My Free Money</div>
+            </div>
+            <div class="cell text-right">
+
+            </div>
+        </div>
+    </div>
+    <div class="grid-container full top-header">
         <div class="grid-x grid-padding-y align-middle align-center">
             <div class="cell text-center spending-amount-container">
-                <div id="totalLeftOver" class="spending-amount">
+                <div id="totalLeftOver" class="spending-amount primary money">
                     $0
                 </div>
                 <div class="subtitle">Total Available Spending</div>
@@ -97,29 +107,51 @@
         </button>
     </div>
 
-    <div class="grid-container">
-        <div class="grid-x grid-margin-x grid-padding-y align-middle align-center text-center large-up-4 total-block-container">
-            <div class="cell total-block">
-                <strong>Total Expenses Monthly:</strong>
-                <div id="totalCostMonthly" class="">
-                    $0
-                </div>
-            </div>
+    <div class="grid-container totals-block-container full">
 
-            <div class="cell total-block">
-                <strong>Total Income Monthly:</strong>
-                <div id="totalIncomeMonthly" class="">
-                    $0
+        <div class="grid-x align-middle align-center small-up-2">
+            <div class="cell">
+
+                <div class="grid-x grid-margin-x grid-padding-y align-middle align-center text-center large-up-4 total-block-container">
+                    <div class="cell total-block">
+                        <div id="totalCostMonthly" class="secondary money">
+                            $0
+                        </div>
+                        <div class="subtitle">Total Expenses Monthly:</div>
+                    </div>
+
+                    <div class="cell total-block">
+                        <div id="totalIncomeMonthly" class="secondary money">
+                            $0
+                        </div>
+                        <div class="subtitle">Total Income Monthly:</div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
 
-  <div  class="grid-container">
+  <div  class="grid-container income-costs-container">
       <div class="grid-x grid-padding-x grid-margin-x medium-up-2">
           <div class="cell text-center costs">
               <h3>Expenses</h3>
               <div id="cost-container" class="grid-x align-middle align-center grid-padding-y">
+                  <div class="cell text-center single-item">
+                      <div class="grid-x grid-padding-x align-middle align-center single-item-container">
+                          <div class="cell shrink transIcon">
+                          <i class="fas fa-file-invoice fa-2x"></i>
+                      </div>
+                          <div class="cell small-4 text-left transName">
+                              Sample Bill
+                              <div class="subtitle">cable</div>
+                          </div>
+                          <div class="cell auto transAmount money">
+                              $75.99
+                          </div>
+                      </div>
+                      <span class="close-icon"><i class="fas fa-window-close costName"></i></span>
+                  </div>
               </div>
           </div>
           <div class="cell text-center income">

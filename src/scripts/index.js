@@ -80,7 +80,7 @@ function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
             costAmount +
             '</div>' +
             '</div>' +
-            '<span class="close-icon"><i class="fas fa-window-close fa-2x '+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>';
+            '<span class="close-icon"><i class="fas fa-window-close'+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>';
 
         document.getElementById('cost-container').appendChild(singleItem);
 
@@ -93,11 +93,11 @@ function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
             '</div>'+
             '<div class="cell small-4 text-left transName">'+
             costName +
-            '<p>'+
+            '<div class="subtitle">'+
             catOfCost +
-            '</p>' +
+            '</div>' +
             '</div>'+
-            '<div class="cell auto transAmount">'+
+            '<div class="cell auto transAmount money">'+
             '$' +
             costAmount +
             '</div>' +

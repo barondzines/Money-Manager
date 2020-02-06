@@ -3,7 +3,7 @@
 
 .money-modal{
 
-    background-color: #313d63;
+    background-color: $foreground-color;
     border-radius: $border-radius-global;
     border: #263253;
 
@@ -20,7 +20,7 @@
 
     input, select{
 
-        background-color: #192132;
+        background-color:$background-color;
         border: #1d253d;
         border-radius: $border-radius-global;
         color:#fff;

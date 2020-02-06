@@ -1,15 +1,14 @@
 
 @import "vars";
 
-.spending-amount-container {
+.top-header {
+    background-color: $farground-color;
+    .spending-amount-container {
 
-    .spending-amount{
-        color:$color-secondary;
-        font-size: 45px;
+        .spending-amount {
+
+        }
+
     }
-
-    .subtitle{
-        font-weight: 300;
-    }
-
 }
+

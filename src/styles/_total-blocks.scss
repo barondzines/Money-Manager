@@ -1,8 +1,15 @@
 
 @import "vars";
 
-.total-block {
-    //background-color: #192132;
-    border:1px solid #3d4c79;
-    border-radius: $border-radius-global;
+
+.totals-block-container {
+
+    background-color: $farground-color;
+    padding-bottom: 20px;
+
+    .total-block {
+        //background-color: $color-tertiary;
+        border: 1px solid $color-tertiary;
+        border-radius: $border-radius-global;
+    }
 }

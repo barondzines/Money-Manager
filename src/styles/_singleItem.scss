@@ -3,11 +3,7 @@
 
 .single-item{
 
-    background: rgb(101,131,251);
-    background: -moz-linear-gradient(34deg, rgba(101,131,251,1) 0%, rgba(118,130,255,1) 100%);
-    background: -webkit-linear-gradient(34deg, rgba(101,131,251,1) 0%, rgba(118,130,255,1) 100%);
-    background: linear-gradient(34deg, rgba(101,131,251,1) 0%, rgba(118,130,255,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6583fb",endColorstr="#7682ff",GradientType=1);
+    background-color: $foreground-color;
     border-radius: 3px;
     position: relative;
 
@@ -20,25 +16,85 @@
         padding: 0 10px;
     }
 
-    .transIcon{
-        background: #cbcbcb;
-        padding: 15px;
-        margin-left: 15px;
-        width: 60px;
-        height: 60px;
-        border-radius: 39px;
+}
+
+.income{
+
+    h3{
+        color:$color-tertiary;
+    }
+
+    .single-item{
+
+        .transAmount {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .transName{
+            color:$color-tertiary;
+            font-weight: normal;
+        }
+
+        .transIcon{
+            color: #fff;
+            background: $color-tertiary;
+            padding: 15px;
+            margin-left: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 39px;
+        }
+
     }
 
     span.close-icon {
+        color:$color-tertiary;
         position: absolute;
         top: 0;
         right: 0;
         padding: 12px;
     }
 
-    .transAmount {
-        font-size: 28px;
-        font-weight: 700;
+
+}
+
+.costs{
+
+    h3{
+        color:$color-secondary;
+    }
+
+    .single-item{
+
+        .transAmount {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .transName{
+            color:$color-secondary;
+            font-weight: normal;
+        }
+
+        .transIcon{
+            color: #fff;
+            background: $color-secondary;
+            padding: 15px;
+            margin-left: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 39px;
+        }
+
+    }
+
+    span.close-icon {
+        color:$color-secondary;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 12px;
     }
 
 }

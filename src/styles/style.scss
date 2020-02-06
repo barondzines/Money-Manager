@@ -1,5 +1,6 @@
 
 @import "vars";
+@import "logo-bar";
 @import "total-spending";
 @import "singleItem";
 @import "modal";
@@ -38,36 +39,70 @@ h2, .h2, .typography h2 {
     margin-bottom: 20px;
 }
 
+.subtitle {
+    color: #566686;
+    font-weight: 300;
+}
 
-.button{
+.money{
 
-    background-color: $primary-cta-color-hover;
+    color: #fff;
+    font-size:18px;
+    font-weight: normal;
 
     &.primary{
 
-        background-color: $primary-cta-color;
+        color: $color-primary;
+        font-size: 45px;
+        font-weight:700;
+
+    }
+
+    &.secondary{
+
+        color: $color-tertiary;
+        font-size: 22px;
+    }
+
+}
+
+
+.button{
+
+    background-color: $color-primary;
+
+    &.primary{
+
+        background-color: $color-primary;
         border-radius: $border-radius-global;
         font-weight: bold;
 
         &:hover{
-            background-color: $primary-cta-color-hover;
+            background-color: $color-primary-hover;
         }
 
         &:focus{
-            background-color: $primary-cta-color-hover;
+            background-color: $color-primary-hover;
             outline: none;
         }
 
         &:active{
-            background-color: $primary-cta-color-hover;
+            background-color: $color-primary-hover;
         }
 
     }
 }
 
-.costs, .income {
 
-    background-color: #192132;
-    padding: 25px;
-    border-radius: 10px;
+
+
+.income-costs-container{
+
+    .costs, .income {
+
+        //background-color: #192132;
+        padding: 25px;
+        border-radius: 10px;
+    }
+
 }

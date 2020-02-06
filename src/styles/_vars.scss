@@ -1,19 +1,27 @@
 
-$color-primary: #1f4c9b;
-$color-secondary: #b57ffd;
-$color-tertiary: #34b27c;
+$color-primary: #1291fe;
+$color-primary-hover: darken($color-primary, 10%);
+$color-secondary: #ae64fa;
+$color-secondary-hover: darken($color-secondary, 10%);
+$color-tertiary: #2db1c5;
+$color-tertiary-hover: darken($color-tertiary, 10%);
 $color-white-alternative: #fcfeff;
-$body-color: slateblue;
 
 $card-background-color: #6586ff;
 $card-border-color: #446ff0;
-$card-button-color: #cd81fd;
+$card-button-color: #ae64fa;
 
 $border-radius-global: 3px;
 
-$background-color: #2b3657;
+$background-color: #172438;
+$foreground-color: #1d314c;
+$farground-color:#121b27;
 $primary-cta-color: #a277fe;
 $primary-cta-color-hover: darken($primary-cta-color, 10%);
+
+$new-background-color: #121b27;
+$new-foreground-color: #162131;
+$new-farground-color:#1b2b43;
 
 
 $font-family: 'Oswald', sans-serif; ;
