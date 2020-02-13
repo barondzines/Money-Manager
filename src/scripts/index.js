@@ -8,6 +8,15 @@ import '../styles/style.css';
  * Below is the insert Item Function, this will automatically add the $ in the amount
  */
 
+function deleteItem(id){
+
+
+    let element = document.getElementById(id).id;
+    console.log(element);
+    //element.remove();
+
+}
+
 function insertItem(){
 
     //Setting Variables to be used in the the rest of the function
@@ -55,7 +64,6 @@ function insertItem(){
     }
 
 }
-window.insertItem = insertItem;
 
 function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
 
@@ -64,6 +72,7 @@ function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
 
     if(transName === 'cost'){
         singleItem.setAttribute('class', 'cell text-center single-item');
+        singleItem.setAttribute('id', '' + costName.replace(/ +/g, "_"));
         singleItem.innerHTML =
             '<div class="grid-x grid-padding-x align-middle align-center single-item-container">'+
             '<div class="cell shrink transIcon">'+
@@ -80,12 +89,13 @@ function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
             costAmount +
             '</div>' +
             '</div>' +
-            '<span class="close-icon"><i class="fas fa-window-close'+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>';
+            '<span class="close-icon" onclick="deleteItem(' + costName.replace(/ +/g, "_") + ')"><i class="fas fa-window-close"></i></span>';
 
         document.getElementById('cost-container').appendChild(singleItem);
 
     } else if(transName === 'income'){
         singleItem.setAttribute('class', 'cell text-center single-item');
+        singleItem.setAttribute('id', '' + costName.replace(/ +/g, "_") + '_item' + '');
         singleItem.innerHTML =
             '<div class="grid-x grid-padding-x align-middle align-center single-item-container">'+
             '<div class="cell shrink transIcon">'+
@@ -102,7 +112,7 @@ function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
             costAmount +
             '</div>' +
             '</div>'+
-            '<span class="close-icon"><i class="fas fa-window-close'+ costName +'" onclick="deleteRow(' + costName.replace(/ +/g, "") + ')"></i></span>';
+            '<span class="close-icon" onclick="deleteItem(' + costName.replace(/ +/g, "_") + "_item" + ')"><i class="fas fa-window-close'+ " " + costName.replace(/ +/g, "")+'"></i></span>';
 
         document.getElementById('income-container').appendChild(singleItem);
 
@@ -110,20 +120,6 @@ function createSingleItem(catOfCost, costAmount, costName, typeOfTrans){
 
 
 }
-
-function deleteRow (transName){
-
-    //TODO if you delete all entries and there is none left, you needd to hide table
-
-    console.log('THis worked');
-    /*
-    $(typeOfTrans).on('click', '.fa-window-close', function() {
-        $(this).closest("tr").remove();
-    });*/
-
-}
-
-
 
 function refreshTotal(){
 
@@ -206,3 +202,6 @@ function moneyTotals(typeOfTrans, costAmount){
 
 
 }
+
+window.insertItem = insertItem;
+window.deleteItem = deleteItem;

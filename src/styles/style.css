@@ -31,7 +31,7 @@
   width: 60px;
   height: 60px;
   border-radius: 39px; }
-.income span.close-icon {
+.income .close-icon {
   color: #2db1c5;
   position: absolute;
   top: 0;
@@ -54,7 +54,7 @@
   width: 60px;
   height: 60px;
   border-radius: 39px; }
-.costs span.close-icon {
+.costs .close-icon {
   color: #ae64fa;
   position: absolute;
   top: 0;
